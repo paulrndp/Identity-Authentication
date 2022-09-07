@@ -1,1 +1,19 @@
 ﻿
+#particles-js {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: -100;
+    top: 0;
+    left: 0;
+    background-color: black;
+}
+
+
+
+.center {
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+}
