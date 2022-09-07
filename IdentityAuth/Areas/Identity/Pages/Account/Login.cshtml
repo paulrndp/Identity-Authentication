@@ -4,8 +4,23 @@
 @{
     ViewData["Title"] = "Log in";
 }
+<div class="container py-5">
 
-<h1>@ViewData["Title"]</h1>
+    <div class="row justify-content-center">
+        <div class="col-7">
+            <div class="card shadow-lg">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="card-link">Card link</a>
+                    <a href="#" class="card-link">Another link</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
 <div class="row">
     <div class="col-md-4">
         <section>
@@ -55,41 +70,41 @@
             @{
                 if ((Model.ExternalLogins?.Count ?? 0) == 0)
                 {
-                        <div>
-                            <p>
-                                There are no external authentication services configured. See this <a href="https://go.microsoft.com/fwlink/?LinkID=532715">
-                                    article
-                                    about setting up this ASP.NET application to support logging in via external services
-                                </a>.
-                            </p>
-                        </div>
+                    <div>
+                        <p>
+                            There are no external authentication services configured. See this <a href="https://go.microsoft.com/fwlink/?LinkID=532715">
+                                article
+                                about setting up this ASP.NET application to support logging in via external services
+                            </a>.
+                        </p>
+                    </div>
                 }
                 else
                 {
-                        <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
-                            <div>
-                                <p>
-                                    @foreach (var provider in Model.ExternalLogins)
+                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+                        <div>
+                            <p>
+                                @foreach (var provider in Model.ExternalLogins)
                                 {
-                                        <button type="submit" class="btn btn-dark text-white btn-block" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">
-                                            @{
+                                    <button type="submit" class="btn btn-dark text-white btn-block" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">
+                                        @{
                                             string imageSrc = string.Empty;
                                             if (provider.DisplayName == "Google")
-                                                 imageSrc = "https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg";
+                                                imageSrc = "https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg";
 
-                                            if(provider.DisplayName == "Facebook")
-                                                    imageSrc = "https://upload.wikimedia.org/wikipedia/en/0/04/Facebook_f_logo_%282021%29.svg";
-                                            }
-                                           
+                                            if (provider.DisplayName == "Facebook")
+                                                imageSrc = "https://upload.wikimedia.org/wikipedia/en/0/04/Facebook_f_logo_%282021%29.svg";
+                                        }
 
-                                            <img src="@imageSrc" alt="@provider.DisplayName" style="height: 20px;"/>
-                                                Login with @provider.DisplayName
-                                        
-                                        </button>
+
+                                        <img src="@imageSrc" alt="@provider.DisplayName" style="height: 20px;" />
+                                        Login with @provider.DisplayName
+
+                                    </button>
                                 }
-                                </p>
-                            </div>
-                        </form>
+                            </p>
+                        </div>
+                    </form>
                 }
             }
         </section>

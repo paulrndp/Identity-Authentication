@@ -1,5 +1,6 @@
 using IdentityAuth.Data;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,7 +13,10 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddEntityFrameworkStores<ApplicationDbContext>();
-builder.Services.AddControllersWithViews();
+
+builder.Services.AddControllersWithViews().AddRazorPagesOptions(options => {
+    options.Conventions.AddAreaPageRoute("Identity", "/Account/Login", "");
+});
 
 builder.Services.AddAuthentication().
     AddGoogle(options =>{
@@ -25,10 +29,10 @@ builder.Services.AddAuthentication().
 });
 builder.Services.AddAuthentication().
 AddFacebook(options => {
-    IConfigurationSection googleAuthSection = builder.Configuration.GetSection("Authentication:Facebook");
+    IConfigurationSection facebookAuthSection = builder.Configuration.GetSection("Authentication:Facebook");
 
-    options.AppId = googleAuthSection["AppId"];
-    options.AppSecret = googleAuthSection["AppSecret"];
+    options.AppId = facebookAuthSection["AppId"];
+    options.AppSecret = facebookAuthSection["AppSecret"];
 });
 
 var app = builder.Build();
@@ -53,9 +57,11 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
+
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=INdex}/{id?}");
+
 app.MapRazorPages();
 
 app.Run();
