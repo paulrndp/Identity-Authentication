@@ -1,19 +1,173 @@
-﻿
-#particles-js {
-    height: 100%;
-    width: 100%;
-    position: fixed;
-    z-index: -100;
-    top: 0;
-    left: 0;
-    background-color: black;
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: arial;
+    text-decoration: none;
 }
 
+a:focus, button:focus {
+    outline: none;
+}
 
+.login-form {
+    max-width: 470px;
+    background: #673AB7;
+    padding: 30px 60px;
+    margin: 50px auto 0px;
+}
 
-.center {
-    top: 50%;
-    left: 50%;
+.logo {
+    margin: 0 auto;
+    display: table;
+}
+
+    .logo img {
+        max-width: 160px;
+    }
+
+.social-btn {
+    display: flex;
+    margin: 40px 0px;
+    padding: 15px 0px;
+
+}
+    .social-btn button {
+        width: 100%;
+        cursor: pointer;
+        border: none;
+        background-color: transparent;
+        font-size: 22px;
+        color: #fff;
+    }
+
+.input-box {
+    width: 100%;
+    height: 50px;
+    position: relative;
+    margin-top: 15px;
+}
+
+    .input-box input {
+        width: 100%;
+        height: 50px;
+        border: none;
+        background: #ffffff;
+        padding: 0 15px;
+        font-size: 16px;
+        outline: none;
+        color: #5c2fab;
+        border-radius: 4px;
+    }
+
+.require-msg {
     position: absolute;
-    transform: translate(-50%, -50%);
+    top: -20%;
+    right: 0px;
+    font-size: 15px;
+    background-color: #FF9800;
+    color: #ffffff;
+    padding: 3px 5px;
+    border-radius: 4px;
+}
+
+.input-box input:focus + .require-msg {
+    display: none;
+}
+
+.remember-pwd {
+    margin-top: 15px;
+    color: #f4f4f480;
+    overflow: hidden;
+    font-size: 14px;
+}
+
+    .remember-pwd a {
+        color: #f4f4f480;
+        font-size: 14px;
+        float: right;
+    }
+
+.remember {
+    float: left;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.checkbox {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border-radius: 50px;
+    margin-right: 10px;
+    position: relative;
+    border: 2px solid #fff;
+}
+
+    .checkbox input {
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        cursor: pointer;
+    }
+
+.checked {
+    position: absolute;
+    left: 5px;
+    top: 2px;
+    width: 4px;
+    height: 10px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(35deg);
+    display: none;
+}
+
+.checkbox input:checked + .checked {
+    display: block;
+}
+
+.login-btn {
+    width: 100%;
+    margin-top: 30px;
+    background: #5c2fab;
+    border: none;
+    color: #fff;
+    outline: none;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 50px;
+    padding: 15px 0px;
+    transition: .3s linear;
+}
+
+    .login-btn.active {
+        background: #ffffff;
+        color: #5c2fab;
+    }
+
+.hide-msg {
+    display: none;
+}
+
+.policy-link {
+    text-align: center;
+    padding: 20px 0px 0px;
+    color: #f1f1f1;
+    font-size: 14px;
+    display: table;
+    margin: 0 auto;
+}
+
+.new-account a {
+    color: #f1f1f1;
+    font-size: 14px;
+}
+
+.new-account {
+    font-size: 14px;
+    text-align: center;
+    color: #f4f4f480;
+    margin: 20px 0;
 }

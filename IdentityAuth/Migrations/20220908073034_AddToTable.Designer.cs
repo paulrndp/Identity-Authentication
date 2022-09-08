@@ -9,17 +9,17 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace IdentityAuth.Data.Migrations
+namespace IdentityAuth.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220906060745_AddTable")]
-    partial class AddTable
+    [Migration("20220908073034_AddToTable")]
+    partial class AddToTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.5")
+                .HasAnnotation("ProductVersion", "6.0.8")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
