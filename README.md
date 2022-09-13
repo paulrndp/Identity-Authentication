@@ -1,2 +1,2 @@
 # Identity-Authentication
-A demo on how to use Google &amp; Facebook Authentication
+User Identity with Google &amp; Facebook Authentication
